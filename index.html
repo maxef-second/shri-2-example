@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href='styles.css' rel='stylesheet' type='text/css'>
 	<title>Document</title>
 </head>
@@ -14,12 +15,63 @@
 				<li class="header__menu__item" ><a href="#">Устройства</a></li>
 				<li class="header__menu__item" ><a href="#">Сценарии</a></li>
 			</ul>
+			<div class="section"><a href="#" class="header__menu__button"><span></span></a></div>
 		</div>
 		<hr class="line">
 	</header>
 
 
-	<footer>
+	<div class="main">
+		<div class="main__header">Главное</div>
+		<div class="main__block">
+			<div class="main__block__left">
+				<div class="main__block__hello">Привет, Геннадий!</div>
+				<div class="main__block__state">Двери и окна, закрыты, сигнализация включена.</div>
+				<ul class="main__block__temperature">
+					<li class="main__block__temperature__item">Дома<br><span>+23</span></li>
+					<li class="main__block__temperature__item">За окном<br><span>+19</span><img src="img/cloud-drizzle.png"></li>
+				</ul>
+			</div>
+			<div class="main__block__right">
+				<ul class="main__block__scripts">
+					<li class="main__block__scripts__item">
+						<div class="main__block__scripts__item__content">
+							<img class="main__block__scripts__item__img" src="img/icon_temperature@1x.png">
+							<div class="main__block__scripts__item__content__text">
+								<div class="main__block__scripts__item__name">Philps Cooler</div>
+								<div class="main__block__scripts__item__describe">Начнет охлаждать в 16:30</div>
+							</div>
+						</div>
+					</li>
+					<li class="main__block__scripts__item">
+						<div class="main__block__scripts__item__content">
+							<img class="main__block__scripts__item__img" src="img/icon_sun@1x.png">
+							<div class="main__block__scripts__item__content__text">
+								<div class="main__block__scripts__item__name">Xiaomi Yeelight LED Smart Bulb</div>
+								<div class="main__block__scripts__item__describe">Включится в 17:00</div>
+							</div>
+						</div>
+					</li>
+					<li class="main__block__scripts__item">
+						<div class="main__block__scripts__item__next">
+							<img width=16px height=16px src="img/Icons/%20Arrow%20Double%20/%20M.png">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+	<div class="script"></div>
+	<div class="devices"></div>
+
+
+	<!-- <footer>
 		<div class="footer">
 			<ul class="footer__menu">
 				<li class="footer__menu__item"><a href="#">Помощь</a></li>
@@ -29,6 +81,6 @@
 			</ul>
 			<div class="copy">&copy; 2001-2017 ООО &laquo; Яндекс &raquo;</div>
 		</div>	
-	</footer>
+	</footer> -->
 </body>
 </html>
