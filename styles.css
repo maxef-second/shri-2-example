@@ -389,7 +389,6 @@ a {
 	width: 97.5%;
 	color: #333333;
 	padding: 0 2.5%;
-	z-index: 1;
 }
 
 .devices__header__title {
@@ -450,24 +449,19 @@ a {
 .devices__blocks__slider {
 	overflow: hidden;
 	height: 120px;
-	width: 102.5%;
+	width: 100%;
 	position: relative;
 	min-width: 100%;
-	z-index: 2;
-	left: -2.5%;
-	/*padding-right: -2.5%;*/
-	/*right: 2.5%;*/
-
 }
 
-.devices__blocks__list {	 
+.devices__blocks__list {
+	right: 0;
 	overflow: hidden;
 	height: 120px;
-	padding-left: 2.5%;
-	/*position: relative;*/
+	position: relative;
 	/*float: left;*/
 	width: 100%;
-	position: absolute;
+	/*position: absolute;*/
 	transition: 1s;
 	display: flex;
 	flex-wrap: nowrap;
@@ -675,7 +669,7 @@ a {
 	}
 
 	.main__header, .script__header, .devices__header {
-		/*margin-top: 20px;*/
+		margin-bottom: 0px;
 
 	}
 
