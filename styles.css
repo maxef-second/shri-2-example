@@ -649,7 +649,7 @@ a {
 		border-radius: 20px;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		width: 95%;
+		width: 100%;
 		position: relative;
 
 
@@ -891,16 +891,17 @@ a {
 		transform: scaleX(0);
   		transform-origin: top;
   		visibility: hidden;
-  		transition-property: opacity;
+  		transition-property: all;
 	}
 
 	.devices__header__list {
+		transition: 1s;
 		position: absolute;
 		right: 2.5%;
 		z-index: 2;
 		border-radius: 20px;
 		justify-content: center;
-		transition-property: opacity;
+		transition-property: all;
 		margin-left: 0;
 		margin-right: 0;
 
@@ -942,7 +943,7 @@ a {
 		transform: scaleX(1);
 		position: relative;
 		transition: 1s;
-		transition-property: opacity;
+		transition-property: all;
 		/*display: block;*/
 		opacity: 1;
 		text-align: center;
@@ -954,7 +955,7 @@ a {
 	
 	.devices__header__list__click {
 		right: 2.5%;
-		transition-property: opacity;
+		transition-property: all;
 		transform: scaleX(1);
 		transition: 1s;
 		opacity: 1;
