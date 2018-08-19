@@ -904,6 +904,7 @@ a {
 		transition-property: all;
 		margin-left: 0;
 		margin-right: 0;
+		cursor: default;
 
 	}
 

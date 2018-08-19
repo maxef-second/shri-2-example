@@ -458,20 +458,29 @@
 		}		
 	});
 
+	
+	// var value_array = ["Все", "Кухня", "Зал", "Лампочки", "Камера"];
+	var value_array = [];
+	for (var i = 0; i < $('.devices__header__list__item__content').length; i++){
+		value_array.push($($('.devices__header__list__item__content')[i])[0].textContent);
+	}
+
+
+
 	$('.devices__header__list__item__active').one('click', function(e) {
 		$('.devices__header__list__item__click').on('click', '', function(){
 			newValue = $(this)[0].textContent;
-			var value_array = [newValue];
-			for (var i = 0; i < $('.devices__header__list__item__content').length; i++){
-				if ($($('.devices__header__list__item__content')[i])[0].textContent != newValue){
-				value_array.push($($('.devices__header__list__item__content')[i])[0].textContent);
 
-				}
+			var tmp_value_array = [];
+			for (var key in value_array) {
+			  tmp_value_array[key] = value_array[key];
 			}
 
-			// $($('.devices__header__list__item__content')[0])[0].childNodes[0].textContent = newValue
+			tmp_value_array.splice(tmp_value_array.indexOf(newValue),1);
+ 			tmp_value_array.unshift(newValue);
+
 			for (var i = 0; i < $('.devices__header__list__item__content').length; i++){
-				$($('.devices__header__list__item__content')[i])[0].childNodes[0].textContent = value_array[i];
+				$($('.devices__header__list__item__content')[i])[0].childNodes[0].textContent = tmp_value_array[i];
 			}
 
 			$('.devices__header__list__item__click').toggleClass('devices__header__list__item__click');
