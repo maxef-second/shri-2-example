@@ -1,9 +1,9 @@
 html {
 	padding: 0;
 	margin: 0;
-	overflow: hidden;	
+	/*overflow: hidden;	*/
 	overflow-x:hidden; 
-	overflow-y:hidden;  
+	/*overflow-y:hidden;  */
 }
 
 body {
@@ -11,9 +11,9 @@ body {
 	margin: 0;
 	font-family: Arial-BoldMT;
 	background: #FFFFFF;
-	overflow: hidden;	
+	/*overflow: hidden;	*/
 	overflow-x:hidden; 
-	overflow-y:hidden;  
+	/*overflow-y:hidden;  */
 
 	height: 100%;
 }
@@ -114,7 +114,7 @@ a {
 
 
 .footer {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: 95%;
 	/*height: 64px;*/
@@ -195,8 +195,9 @@ a {
 }
 
 .main__block__left {
-	padding-top: 20px;
-	padding-left: 30px;
+	position: relative;
+	top: 20px;
+	left: 30px;
 	float: left;
 }
 
@@ -246,7 +247,7 @@ a {
 
 .main__block__right {
 	float: right;
-	position: relative;
+	position: static;
 	width: 210px;
 	max-height: 331px;
 	right: 0;
@@ -264,9 +265,13 @@ a {
 
 
 .main__block__scripts {
+	/*padding-top: 5px;*/
+	top: 0;
+	display: flex;
+	flex-direction: column;
 	text-decoration: none;
 	position: relative;
-	right: 12px;	
+	right: 20px;	
 	max-height: 331px;
 	overflow-y: scroll;
 
@@ -275,11 +280,11 @@ a {
 .main__block__scripts__item, .script__blocks__item, .devices__blocks__item  {
 	min-width: 200px;
 	min-height: 120px;
-	margin-top: 19px;
-	display: inline-block;
+	margin-top: 15px;
+	/*display: inline-block;*/
 	background: #F7F7F7;
 	border-radius: 20px;
-
+	list-style-type: none;
 	position:relative;
 
 }
@@ -326,7 +331,7 @@ a {
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	margin-top: 23px;
+	margin-top: 18px;
 
 }
 
@@ -344,20 +349,43 @@ a {
 	/*height: 100%;*/
 	/*width: 1000px;*/
 	overflow: hidden;
+	/*overflow-x: scroll;*/
+
+	width: 100%;
+	position: relative;
+	
 }
 
 .script__blocks__list{
+	overflow: hidden;
+	/*overflow-x: scroll;*/
+	/*width: 200%;*/
+	max-height: 330px;
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: row;
+	position: relative;
+	/*justify-content: flex-start;*/
+}
+
+.script__blocks__list__horizontal {
+	transition: 1s;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: relative;
+	align-items: flex-start;
+	
+
 }
 
 .script__blocks__item {
-	/*display: flex;
-	flex-direction: row;
-    flex-wrap: nowrap;
-    text-align: left;*/
+	width: 200px;
+	height: 100px;
+	
 
-	flex: 0 auto;
+	/*flex: 0 auto;*/
 	margin: 0 20px 15px 0;
 	min-height: 100px;
 }
@@ -369,11 +397,11 @@ a {
 	/*margin-right: 0;
 }*/
 
-.right_arrow, .devices__header__nav__right_arrow {
+.script__header__nav__right_arrow, .devices__header__nav__right_arrow {
 	transform: scale(-1, 1);
 }
 
-.devices__header__nav__left_arrow, .devices__header__nav__right_arrow, .left_arrow, .right_arrow {
+.devices__header__nav__left_arrow, .devices__header__nav__right_arrow, .script__header__nav__left_arrow, .script__header__nav__right_arrow {
 	margin: 0 10px;
 }
 
@@ -481,15 +509,88 @@ a {
 }
 
 
-.devices__blocks__list__right__click {
-		transform: translate(-120px);
-		transition: transform 300ms ease;
+
+
+
+
+
+
+
+
+
+@media (max-width: 1250px){
+
+	
+	.main__block__right {
+		/*float: left;*/
+		position: relative;
+		/*padding: 10px 0px;*/
+		width: 100%;
+		/*height: 150px;*/
+		/*max-height: 150px;*/
+
+
+	}
+
+	.main__block__scripts {
+		text-decoration: none;
+		
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		overflow-x: scroll;
+		white-space: nowrap;
+
+		padding: 0;
+		right: 0px;
+		margin: 0 20px;
+		bottom: 15px;
+		top: 15px;
+
+	}
+	
+	.main__block__scripts__item {
+		margin: 0 20px 0px 0;
+		text-decoration: none;
+		text-decoration-style: none;
+		list-style: none;
+		
+		position:relative;
+
+	}
+
+
+
+	.main__block__hello {
+		font-size: 18px;
+	}
+
+	.main__block__state {
+		font-size: 12px;
+	}
+
+	.main__block__temperature__item {
+		font-size: 12px;
+	}
+	
+	.main__block__temperature__item span {
+		font-size: 24px;
+	}
+
+	.main__block__temperature__item img {
+		width: 20px;
+		position: relative;
+		/*top: 2px;
+		left: -4px;*/
+	}
+
+
 }
 
-.devices__blocks__list__left__click {
-		transform: translate(120px);
-		transition: transform 300ms ease;
-}
 
 
 
@@ -536,7 +637,8 @@ a {
 		bottom: 0;
 		justify-content: center;
 		align-items: center;
-		margin: 1px 0;
+		margin: 2px 0;
+		padding-top: 10px;
 
 	}
 
@@ -635,35 +737,42 @@ a {
 	}
 
 	.main__block__right {
-		float: left;
+		/*float: left;*/
 		position: relative;
 		/*padding: 10px 0px;*/
 		width: 100%;
-		height: 150px;
-		max-height: 150px;
+		/*height: 150px;*/
+		/*max-height: 150px;*/
+
 	}
 
 	.main__block__scripts {
-		left: 0px;
-		top: 0px;
 		text-decoration: none;
+		
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
 
-		height: 150px;
-		max-height: 150px;
-		/*max-width: 440px;	*/
 		position: relative;
 		max-width: 100%;
 		overflow: hidden;
 		overflow-x: scroll;
 		white-space: nowrap;
 
+
+		padding: 0;
+		right: 0px;
+		margin: 0 20px;
+		bottom: 15px;
+
 	}
 	
 	.main__block__scripts__item {
-		/*margin-top: -10px;*/
-		/*margin-left: 20px;*/
-
-		display: inline-block;
+		margin: 0 20px 0px 0;
+		text-decoration: none;
+		text-decoration-style: none;
+		list-style: none;
+		
 		position:relative;
 
 	}
@@ -671,6 +780,10 @@ a {
 	.main__header, .script__header, .devices__header {
 		margin-bottom: 0px;
 
+	}
+
+	.horizontal {
+		/*display: inline-block;*/
 	}
 
 
@@ -692,6 +805,59 @@ a {
 	}
 
 
+
+	
+	.script__blocks {
+		/*overflow: hidden;*/
+		/*overflow-x: scroll;*/
+
+		max-height: 120px;
+		min-width: 100%;
+		
+	}
+
+	.script__blocks__list{
+		overflow: hidden;
+		/*overflow-x: scroll;*/
+		max-height: 120px;
+		height: 120px;
+		float: left;
+		min-width: 1935px;
+
+
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		position: relative;
+		margin: 20px 0;
+
+
+	}
+
+	.script__blocks__list__horizontal {
+		min-width: 100%;
+		position: relative;
+		align-items: stretch;
+
+		max-height: 120px;
+		height: 120px;
+		overflow: hidden;
+		overflow-x: scroll;
+		/*white-space: nowrap;*/
+
+	}
+
+	.script__blocks__item {
+		/*margin: 0 20px 15px 0;*/
+		min-height: 100px;
+	}
+
+
+
+
+
+
+
 	.devices__blocks, .script__blocks {
 		width: 100%;
 		/*min-width: auto;*/
@@ -699,7 +865,7 @@ a {
 
 
 
-	.devices__blocks__list, .script__blocks__list {
+	.devices__blocks__list {
 		overflow-x: scroll;
 		/*min-width: 100%;*/
 		margin: 20px 0;
