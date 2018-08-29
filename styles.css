@@ -516,6 +516,10 @@ a {
 	display: none;
 }
 
+.devices__blocks__item:hover {
+	background-color: white;
+	box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50);
+}
 
 
 
@@ -530,9 +534,6 @@ a {
     left: 0;
     display: none;
     z-index: 100;
-
-    /*transform: scale(1);*/
-  	/*opacity: 0;*/
   	transition: 1s;
 }
 
@@ -633,8 +634,12 @@ a {
 	width: 70px;
 }
 
+.elgato_eve_degree_connected__body__main__right {
+	right: 0px;
+	width: 120px;
+}
 
-.xiaomi_warm_floor__body__main__right__temperature .xiaomi_yeelight_led_smart_bulb__body__main__right__temperature, .elgato_eve_degree_connected__body__main__right__temperature {
+.xiaomi_warm_floor__body__main__right__temperature, .xiaomi_yeelight_led_smart_bulb__body__main__right__temperature, .elgato_eve_degree_connected__body__main__right__temperature {
 	
 	font-family: Arial-BoldMT;
 	font-size: 36px;
@@ -684,29 +689,41 @@ a {
 .xiaomi_warm_floor__body__main__oval {
 	height: 100%;
 	width: 100%;
-	position: absolute;
-
-	margin: auto;
+	position: relative;
 }
 
 .xiaomi_warm_floor__body__main__oval__background {
-	position: relative;
-	margin-top: 100px;
+	position: absolute;
+	top: 100px;
+	left: 36%;
 	height: 178px;
 	width: 178px;
 
 }
 
-
-
-/*
-.xiaomi_warm_floor__body__main__oval__border {
-	margin-top: 100px;
+.xiaomi_warm_floor__body__main__oval__light {
 	position: absolute;
-	height: 178px;
-	width: 178px;
-}*/
+	top: 77px;
+	left: 32.5%;
+}
 
+.xiaomi_warm_floor__body__main__oval__dark {
+	position: absolute;
+	top: 208px;
+	left: 57%;
+}
+
+.xiaomi_warm_floor__body__main__oval__value{
+	position: absolute;
+	top: 150px;
+	left: 40%;
+	z-index: 10;
+	font-family: Arial-BoldMT;
+	font-size: 66px;
+	color: #333333;
+	letter-spacing: 0;
+	text-align: left;
+}
 
 
 .xiaomi_yeelight_led_smart_bulb__body__main__menu, .elgato_eve_degree_connected__body__main__menu {
@@ -739,7 +756,7 @@ a {
 }
 
 
-.xiaomi_yeelight_led_smart_bulb__progress {
+.xiaomi_yeelight_led_smart_bulb__progress, .elgato_eve_degree_connected__progress {
 	top: 60px;
 	position: absolute;
   	border-radius: 30px;
@@ -748,16 +765,22 @@ a {
   	width: 95%;
 }
 
-.xiaomi_yeelight_led_smart_bulb__progress__bar {
+.xiaomi_yeelight_led_smart_bulb__progress__bar  {
   	min-height: 60px;
 	background-image: linear-gradient(85deg, #FFE682 2%, #FF9E00 98%);
 	border-radius: 30px; 
 	z-index: 3;
 }
 
+.elgato_eve_degree_connected__progress__bar {
+	min-height: 60px;
+	background-image: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+	border-radius: 30px; 
+	z-index: 3;
+}
 
 
-.xiaomi_yeelight_led_smart_bulb__progress__circle {
+.xiaomi_yeelight_led_smart_bulb__progress__circle, .elgato_eve_degree_connected__progress__circle {
 	top: 78px;
     position: relative;
     display: inline-block;
@@ -770,19 +793,19 @@ a {
     z-index: 10;
 }
 
-.xiaomi_yeelight_led_smart_bulb__progress__circle:active {
+.xiaomi_yeelight_led_smart_bulb__progress__circle:active, .elgato_eve_degree_connected__progress__circle:active {
 	background-color: #F5F5F5;
 }
 
 
 
-.xiaomi_yeelight_led_smart_bulb__progress__min {
+.xiaomi_yeelight_led_smart_bulb__progress__min, .elgato_eve_degree_connected__progress__min {
 	position: absolute;
 	bottom: 12px;
 	left: 30px;
 }
 
-.xiaomi_yeelight_led_smart_bulb__progress__max {
+.xiaomi_yeelight_led_smart_bulb__progress__max, .elgato_eve_degree_connected__progress__max {
 	position: absolute;
 	bottom: 12px;
 	right: 30px;
@@ -902,7 +925,7 @@ a {
 
 	.header {
 		position: fixed;
-		/*z-index: 200;*/
+		z-index: 200;
 	}
 
 	html {
@@ -1292,29 +1315,29 @@ a {
 
 
 
-.xiaomi_warm_floor, .xiaomi_yeelight_led_smart_bulb {
+.xiaomi_warm_floor, .xiaomi_yeelight_led_smart_bulb, .elgato_eve_degree_connected {
     background: rgba(102, 102, 102, 0.5);
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    display: block;
-    z-index: 100; 
+    display: none;
+    z-index: 300; 
 	max-width: 100%;
 
        
 }
 
 
-.xiaomi_warm_floor__body,  .xiaomi_yeelight_led_smart_bulb__body {
+.xiaomi_warm_floor__body,  .xiaomi_yeelight_led_smart_bulb__body, .elgato_eve_degree_connected__body {
 	position: absolute;
 	max-width: 100%;
 	height: 100%;
 
 }
 
-.xiaomi_warm_floor__body__main, .xiaomi_yeelight_led_smart_bulb__body__main {
+.xiaomi_warm_floor__body__main, .xiaomi_yeelight_led_smart_bulb__body__main, .elgato_eve_degree_connected__body__main {
 	position: relative;
 	width: 95%;
     min-height: 75%;
@@ -1328,10 +1351,7 @@ a {
 
 }
 
-.xiaomi_yeelight_led_smart_bulb__body__main {
-}
-
-.xiaomi_warm_floor__buttons, .xiaomi_yeelight_led_smart_bulb__buttons {
+.xiaomi_warm_floor__buttons, .xiaomi_yeelight_led_smart_bulb__buttons, .elgato_eve_degree_connected__buttons {
 	width: 95%;
 	margin: 0 2.5%;
 	min-height: 20%;
@@ -1340,12 +1360,13 @@ a {
 	flex-flow: column nowrap;
 }
 
-.xiaomi_yeelight_led_smart_bulb__buttons {
+.xiaomi_yeelight_led_smart_bulb__buttons, .elgato_eve_degree_connected__buttons {
 	top: 0;
 }
 
 .xiaomi_warm_floor__cancelButton, .xiaomi_warm_floor__acceptButton,
-.xiaomi_yeelight_led_smart_bulb__cancelButton, .xiaomi_yeelight_led_smart_bulb__acceptButton {
+.xiaomi_yeelight_led_smart_bulb__cancelButton, .xiaomi_yeelight_led_smart_bulb__acceptButton,
+.elgato_eve_degree_connected__cancelButton, .elgato_eve_degree_connected__acceptButton {
 	width: 100%;
 	position: relative;
 	border-radius: 20px;
@@ -1355,7 +1376,7 @@ a {
 	margin-top: 10px;
 }
 
-.xiaomi_warm_floor__body__main__left, .xiaomi_yeelight_led_smart_bulb__body__main__left {
+.xiaomi_warm_floor__body__main__left, .xiaomi_yeelight_led_smart_bulb__body__main__left, .elgato_eve_degree_connected__body__main__left {
 	float: left;
 	text-align: left;
 	position: relative;
@@ -1378,27 +1399,27 @@ a {
 }
 
 
-.xiaomi_warm_floor__body__main__left__name, .xiaomi_yeelight_led_smart_bulb__body__main__left__name {
+.xiaomi_warm_floor__body__main__left__name, .xiaomi_yeelight_led_smart_bulb__body__main__left__name, .elgato_eve_degree_connected__body__main__left__name {
 	font-size: 18px;
 }
 
 
-.xiaomi_warm_floor__body__main__left__descrption, .xiaomi_yeelight_led_smart_bulb__body__main__left__descrption {
+.xiaomi_warm_floor__body__main__left__descrption, .xiaomi_yeelight_led_smart_bulb__body__main__left__descrption, .elgato_eve_degree_connected__body__main__left__descrption {
 	margin-top: 5px;
 	font-size: 12px;
 }
 
 
-.xiaomi_warm_floor__body__main__right, .xiaomi_yeelight_led_smart_bulb__body__main__right {
+.xiaomi_warm_floor__body__main__right, .xiaomi_yeelight_led_smart_bulb__body__main__right, .elgato_eve_degree_connected__body__main__right {
 	display: none;
 }
 
 
-.xiaomi_warm_floor__cancelButton, .xiaomi_yeelight_led_smart_bulb__cancelButton {
+.xiaomi_warm_floor__cancelButton, .xiaomi_yeelight_led_smart_bulb__cancelButton, .elgato_eve_degree_connected__cancelButton{
 	margin-left: 0;
 }
 
-.xiaomi_yeelight_led_smart_bulb__body__main__menu {
+.xiaomi_yeelight_led_smart_bulb__body__main__menu, .elgato_eve_degree_connected__body__main__menu {
 	/*flex-wrap: wrap;*/
 	/*float: left;*/
 	top: 20px;
@@ -1406,7 +1427,7 @@ a {
 	overflow-x: scroll;
 }
 
-.xiaomi_yeelight_led_smart_bulb__body__main__menu__item {
+.xiaomi_yeelight_led_smart_bulb__body__main__menu__item, .elgato_eve_degree_connected__body__main__menu__item {
 	display: inline-block;
 	white-space: pre;
 	font-family: ArialMT;
@@ -1416,21 +1437,20 @@ a {
 }
 
 
-.xiaomi_yeelight_led_smart_bulb__progress {
+.xiaomi_yeelight_led_smart_bulb__progress, .elgato_eve_degree_connected__progress {
   	z-index: 4;
   	width: 100%;
-  	height: 59%;
-	top: 100px;
+  	height: 285px;
+	top: 23%;
 	position: absolute;
-	margin-top: 10%;
+	padding-top: 20px;
 
 
 
 	
 }
 
-.xiaomi_yeelight_led_smart_bulb__progress__bar {
-	background-image: linear-gradient(85deg, #FFE682 2%, #FF9E00 98%);
+.xiaomi_yeelight_led_smart_bulb__progress__bar, .elgato_eve_degree_connected__progress__bar {
 	border-radius: 30px; 
 	z-index: 3;
 	left: -15px;
@@ -1438,14 +1458,15 @@ a {
 	position: relative;
 	margin: auto auto;
 	transform-origin: center center;
-	width: 100%;
+	width: 70%;
+	top: 12px;
 
 }
 
 
 
-.xiaomi_yeelight_led_smart_bulb__progress__circle {
-	right: 3.8%;
+.xiaomi_yeelight_led_smart_bulb__progress__circle, .elgato_eve_degree_connected__progress__circle {
+	right: 15px;
     position: relative;
     display: inline-block;
     margin: 1em;
@@ -1460,17 +1481,68 @@ a {
 
 
 
-.xiaomi_yeelight_led_smart_bulb__progress__min {
+.xiaomi_yeelight_led_smart_bulb__progress__min, .elgato_eve_degree_connected__progress__min {
 	position: absolute;
 	bottom: 12px;
 	left: 45px;
 }
 
-.xiaomi_yeelight_led_smart_bulb__progress__max {
+.xiaomi_yeelight_led_smart_bulb__progress__max, .elgato_eve_degree_connected__progress__max {
 	position: absolute;
 	bottom: 12px;
 	right: 50px;
 }
+
+
+
+
+
+.xiaomi_warm_floor__body__main__oval {
+	height: 100%;
+	width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.xiaomi_warm_floor__body__main__oval__background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -85px 0 0 -85px;
+	height: 178px;
+	width: 178px;
+
+}
+
+.xiaomi_warm_floor__body__main__oval__light {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -107px 0 0 -105px;
+}
+
+.xiaomi_warm_floor__body__main__oval__dark {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 20px 0 0 50px;
+}
+
+.xiaomi_warm_floor__body__main__oval__value{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -50px;
+	z-index: 10;
+	font-family: Arial-BoldMT;
+	font-size: 66px;
+	color: #333333;
+	letter-spacing: 0;
+	text-align: left;
+}
+
 
 
 

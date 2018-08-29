@@ -3,12 +3,12 @@ $('.devices__blocks__list')[0].style.left = "0";
 
 $('.devices__header__nav__right_arrow').on('click', function(e) {
 	if ($(window).width()*0.975 <= (parseInt($('.devices__blocks__list').width()) + parseInt($('.devices__blocks__list')[0].style.left))){
-		$('.devices__blocks__list').animate({left: parseInt($('.devices__blocks__list')[0].style.left)-215}, 0);
+		$('.devices__blocks__list').animate({left: parseInt($('.devices__blocks__list')[0].style.left)-215*Math.floor($(window).width()/215)}, 0);
 	}
 });
 $('.devices__header__nav__left_arrow').on('click', function(e) {
 	if (!(parseInt($('.devices__blocks__list')[0].style.left) == 0)){
-		$('.devices__blocks__list').animate({left: parseInt($('.devices__blocks__list')[0].style.left)+215}, 0);
+		$('.devices__blocks__list').animate({left: parseInt($('.devices__blocks__list')[0].style.left)+215*Math.floor($(window).width()/215)}, 0);
 	}
 });
 
@@ -38,7 +38,7 @@ if ($('.devices__blocks__list').width() < $('body').width()){
 	$('.devices__header__nav').hide();
 }
 
-if ($('.script__blocks__list').width() < $('body').width()*0.4){
+if ($('.script__blocks__list__horizontal').width() < $('body').width()*0.4){
 	$('.script__header__nav').hide();
 }
 
@@ -99,9 +99,27 @@ var label__mobile = 1;
 				$($('.main__block__scripts__item')[i])[0].innerHTML = array_template[i];
 			}
 	 	}
-	 	if ($(window).width() < 840){
-	 		$('.xiaomi_yeelight_led_smart_bulb__progress__bar').width($(".xiaomi_yeelight_led_smart_bulb").height()*0.5)
-	 	}
+	 	if ($(window).width() >= 840) {
+			$(".xiaomi_yeelight_led_smart_bulb__progress__circle").draggable({
+			    containment: 'parent', axis:'x'
+			  });
+		}
+		if ($(window).width() < 840) {
+			$(".xiaomi_yeelight_led_smart_bulb__progress__circle").draggable({
+			    containment: 'parent', axis:'y'
+			  });
+		}
+		if ($(window).width() >= 840) {
+		$(".elgato_eve_degree_connected__progress__circle").draggable({
+		    containment: 'parent', axis:'x'
+		  });
+		}
+		if ($(window).width() < 840) {
+			$(".elgato_eve_degree_connected__progress__circle").draggable({
+			    containment: 'parent', axis:'y'
+			  });
+		}
+
 	});
 
 	window.onresize = $(window).resize();

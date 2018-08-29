@@ -393,6 +393,15 @@
 						</li>
 						<li class="devices__blocks__item">
 							<div class="devices__blocks__item__content">
+								<img class="devices__blocks__item__img" src="img/icon_sun@1x.png">
+								<div class="devices__blocks__item__content__text">
+									<div class="devices__blocks__item__name">Xiaomi Warm Floor</div>
+									<div class="devices__blocks__item__describe">Включено</div>
+								</div>
+							</div>
+						</li>
+						<li class="devices__blocks__item">
+							<div class="devices__blocks__item__content">
 								<img class="devices__blocks__item__img" src="img/icon_temperature@1x.png">
 								<div class="devices__blocks__item__content__text">
 									<div class="devices__blocks__item__name">Elgato Eve Degree Connected</div>
@@ -505,7 +514,7 @@
 
 
 
-	<!-- <div class="xiaomi_warm_floor">
+	<div class="xiaomi_warm_floor">
 			<div class="xiaomi_warm_floor__body">
 				<div class="xiaomi_warm_floor__body__main">
 					<div class="xiaomi_warm_floor__body__main__left">
@@ -519,7 +528,9 @@
 					
 					<div class="xiaomi_warm_floor__body__main__oval">
 						<img class="xiaomi_warm_floor__body__main__oval__background" src="img/background@2x.png">
-
+						<img class="xiaomi_warm_floor__body__main__oval__light" src="img/Oval@1x.svg">
+						<img class="xiaomi_warm_floor__body__main__oval__dark" src="img/OvalCopy@1x.svg">
+						<div class="xiaomi_warm_floor__body__main__oval__value">+23</div>
 					</div>
 
 				</div>
@@ -537,7 +548,7 @@
 			
 		</div>
 
- -->
+
 
  <div class="xiaomi_yeelight_led_smart_bulb">
 			<div class="xiaomi_yeelight_led_smart_bulb__body">
@@ -582,7 +593,7 @@
 
 
 
-<!-- 
+
 	<div class="elgato_eve_degree_connected">
 			<div class="elgato_eve_degree_connected__body">
 				<div class="elgato_eve_degree_connected__body__main">
@@ -601,20 +612,27 @@
 						<li class="elgato_eve_degree_connected__body__main__menu__item">Жарко</li>
 					</ul>
 					
-					
+					<div class="elgato_eve_degree_connected__progress">
+						<div class="elgato_eve_degree_connected__progress__circle ui-widget-content" ></div>
+						<div class="elgato_eve_degree_connected__progress__bar" >
+						<img class="elgato_eve_degree_connected__progress__min" src="img/icon_sun_min.png">
+					  
+					  <img class="elgato_eve_degree_connected__progress__max" src="img/icon_sun_max.png">
+					  </div>
 
-				<div class="elgato_eve_degree_connected__buttons">
-					<div class="elgato_eve_degree_connected__acceptButton">
-						<div class="elgato_eve_degree_connected__acceptButton__content">Применить</div>
 					</div>
-					<div class="elgato_eve_degree_connected__cancelButton">
-						<div class="elgato_eve_degree_connected__cancelButton__content">Закрыть</div>
-					</div>
+			</div>
+			<div class="elgato_eve_degree_connected__buttons">
+				<div class="elgato_eve_degree_connected__acceptButton">
+					<div class="elgato_eve_degree_connected__acceptButton__content">Применить</div>
 				</div>
-
+				<div class="elgato_eve_degree_connected__cancelButton">
+					<div class="elgato_eve_degree_connected__cancelButton__content">Закрыть</div>
+				</div>
 			</div>
 			
-		</div>  -->
+		</div> 
+	</div>
 
 
 
@@ -641,32 +659,52 @@
 		  });
 	}
 
-	parameters = {
-        duration: 1000,
-        progress: function (animation, progress) {
-        	console.log(animation);
-        	console.log(progress);
-        }
-    }
-    $('.devices__blocks__item').click(function () {
-        $('.xiaomi_yeelight_led_smart_bulb').show(parameters);
-    });
 
-	// $(".devices__blocks__item").on("click", function(){
-	// 	if ($($($(this).children().children()[1]).children()[0]).text() == "Xiaomi Yeelight LED Smart Bulb") {
-	// 		$(".xiaomi_yeelight_led_smart_bulb").fadeToggle();
-	// 	}
-	// 	$(".xiaomi_yeelight_led_smart_bulb__cancelButton, .xiaomi_yeelight_led_smart_bulb__acceptButton").one("click", function(){
-	// 		// $(".xiaomi_yeelight_led_smart_bulb").fadeToggle();
-	// 		// console.log("1");
-			
-	// 	})
+	if ($(window).width() >= 840) {
+		$(".elgato_eve_degree_connected__progress__circle").draggable({
+		    containment: 'parent', axis:'x'
+		  });
+	}
+	if ($(window).width() < 840) {
+		$(".elgato_eve_degree_connected__progress__circle").draggable({
+		    containment: 'parent', axis:'y'
+		  });
+	}
 
-	// })
+	$(".devices__blocks__item").on("click", function(){
+		if ($($($(this).children().children()[1]).children()[0]).text() == "Xiaomi Yeelight LED Smart Bulb") {
+			$(".header").attr("z-index", "0");
+			$(".xiaomi_yeelight_led_smart_bulb").fadeTo("fast", 1, "linear")
+		}
+		$(".xiaomi_yeelight_led_smart_bulb__cancelButton, .xiaomi_yeelight_led_smart_bulb__acceptButton").one("click", function(){
+			$(".xiaomi_yeelight_led_smart_bulb").hide()
+			$(".header").attr("z-index", "200");
+		})
+
+	})
+
+	$(".devices__blocks__item").on("click", function(){
+			if ($($($(this).children().children()[1]).children()[0]).text() == "Elgato Eve Degree Connected") {
+				$(".elgato_eve_degree_connected").fadeTo("fast", 1, "linear");
+			}
+			$(".elgato_eve_degree_connected__cancelButton, .elgato_eve_degree_connected__acceptButton").one("click", function(){
+				$(".elgato_eve_degree_connected").hide()
+			})
+
+		})
+
+	$(".devices__blocks__item").on("click", function(){
+			if ($($($(this).children().children()[1]).children()[0]).text() == "Xiaomi Warm Floor") {
+				$(".xiaomi_warm_floor").fadeTo("fast", 1, "linear")
+			}
+			$(".xiaomi_warm_floor__cancelButton, .xiaomi_warm_floor__acceptButton").one("click", function(){
+				$(".xiaomi_warm_floor").hide()
+			})
+
+		})
 
 
-
-
+// $(".elgato_eve_degree_connected").fadeTo("fast", 1, "linear");
 
 
 	var devices__header__menu__image = '<img class="devices__header__list__item__active__img" src="img/arrow-down.svg">';
