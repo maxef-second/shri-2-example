@@ -1475,7 +1475,7 @@ a {
     border-radius: 50%;
     vertical-align: middle;
     border: 0.3em solid #fff;
-    z-index: 10;
+    z-index: 1000;
 }
 
 
