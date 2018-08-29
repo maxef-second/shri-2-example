@@ -1,3 +1,113 @@
+	if ($(window).width() >= 840) {
+			$(".xiaomi_yeelight_led_smart_bulb__progress__circle").draggable({
+			    containment: 'parent', axis:'x'
+			  });
+		}
+	if ($(window).width() < 840) {
+		$(".xiaomi_yeelight_led_smart_bulb__progress__circle").draggable({
+		    containment: 'parent', axis:'y'
+		  });
+	}
+
+
+	if ($(window).width() >= 840) {
+		$(".elgato_eve_degree_connected__progress__circle").draggable({
+		    containment: 'parent', axis:'x'
+		  });
+	}
+	if ($(window).width() < 840) {
+		$(".elgato_eve_degree_connected__progress__circle").draggable({
+		    containment: 'parent', axis:'y'
+		  });
+	}
+
+	$(".devices__blocks__item").on("click", function(){
+		if ($($($(this).children().children()[1]).children()[0]).text() == "Xiaomi Yeelight LED Smart Bulb") {
+			$(".header").attr("z-index", "0");
+			$(".xiaomi_yeelight_led_smart_bulb").fadeTo("fast", 1, "linear")
+		}
+		$(".xiaomi_yeelight_led_smart_bulb__cancelButton, .xiaomi_yeelight_led_smart_bulb__acceptButton").one("click", function(){
+			$(".xiaomi_yeelight_led_smart_bulb").hide()
+			$(".header").attr("z-index", "200");
+		})
+
+	})
+
+	$(".devices__blocks__item").on("click", function(){
+			if ($($($(this).children().children()[1]).children()[0]).text() == "Elgato Eve Degree Connected") {
+				$(".elgato_eve_degree_connected").fadeTo("fast", 1, "linear");
+			}
+			$(".elgato_eve_degree_connected__cancelButton, .elgato_eve_degree_connected__acceptButton").one("click", function(){
+				$(".elgato_eve_degree_connected").hide()
+			})
+
+		})
+
+	$(".devices__blocks__item").on("click", function(){
+			if ($($($(this).children().children()[1]).children()[0]).text() == "Xiaomi Warm Floor") {
+				$(".xiaomi_warm_floor").fadeTo("fast", 1, "linear")
+			}
+			$(".xiaomi_warm_floor__cancelButton, .xiaomi_warm_floor__acceptButton").one("click", function(){
+				$(".xiaomi_warm_floor").hide()
+			})
+
+		})
+
+
+
+	var devices__header__menu__image = '<img class="devices__header__list__item__active__img" src="img/arrow-down.svg">';
+
+
+
+	$('.devices__header__list__item__active').on('click', function(e) {
+		e.preventDefault();
+		if ($(window).width() <= '840'){
+			$('.devices__header__list__item').toggleClass('devices__header__list__item__click');
+			$('.devices__header__list').toggleClass('devices__header__list__click');
+		}		
+	});
+
+	
+	// var value_array = ["Все", "Кухня", "Зал", "Лампочки", "Камера"];
+	var value_array = [];
+	for (var i = 0; i < $('.devices__header__list__item__content').length; i++){
+		value_array.push($($('.devices__header__list__item__content')[i])[0].innerHTML);
+	}
+
+
+$($('.devices__header__list__item__active').children())[0].innerHTML += devices__header__menu__image;
+
+$('.devices__header__list__item__active').one('click', function(e) {
+	$('.devices__header__list__item__click').on('click', '', function(){
+		if ($(window).width() < 840){
+			$('.devices__header__menu__image').remove();
+			newValue = $(this)[0].textContent;
+
+			var tmp_value_array = [];
+			for (var key in value_array) {
+			  tmp_value_array[key] = value_array[key];
+			}
+
+			tmp_value_array.splice(tmp_value_array.indexOf(newValue),1);
+				tmp_value_array.unshift(newValue);
+
+			for (var i = 0; i < $('.devices__header__list__item__content').length; i++){
+				$($('.devices__header__list__item__content')[i])[0].innerHTML = tmp_value_array[i];
+				if (i == 0){
+					$($('.devices__header__list__item__content')[i])[0].innerHTML += devices__header__menu__image;
+				}
+			}
+
+			$('.devices__header__list__item__click').toggleClass('devices__header__list__item__click');
+			$('.devices__header__list').toggleClass('devices__header__list__click');
+		}
+	})
+})
+
+
+
+
+
 // 2 слайдер
 $('.devices__blocks__list')[0].style.left = "0";
 
